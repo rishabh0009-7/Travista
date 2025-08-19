@@ -1,36 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Travista – Modern Travel Landing Page
+
+Beautiful, responsive landing page for a travel platform built with Next.js App Router, Tailwind CSS, and Framer Motion. Includes animated hero, services, destinations carousel, testimonials/CTA, and a clean footer.
+
+### Tech Stack
+
+- **Next.js 15** (App Router)
+- **React 19** + **TypeScript**
+- **Tailwind CSS v4**
+- **Framer Motion 12** (animations)
+- **shadcn/ui** primitives (via Radix)
+- **Lucide Icons**
+
+### Features
+
+- **Responsive design** with modern UI and accessible colors/contrast
+- **Animated hero** with search inputs and micro-interactions
+- **Services section** with scroll-triggered reveals
+- **Destinations carousel** with hover effects and ratings
+- **Testimonials/CTA** block with gradients and motion
+- **Sticky header** with smooth transitions
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ (LTS recommended)
+- npm (comes with Node.js)
+
+### Installation
+
+```bash
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Lint
 
-## Learn More
+```bash
+npm run lint
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```text
+travista/
+├─ app/
+│  ├─ layout.tsx           # Root layout + global styles
+│  ├─ page.tsx             # Home page (assembles sections)
+│  └─ globals.css          # Tailwind v4 styles, theme tokens
+├─ components/
+│  ├─ header.tsx
+│  ├─ hero-section.tsx
+│  ├─ stats-section.tsx
+│  ├─ service-section.tsx
+│  ├─ destination-section.tsx
+│  ├─ testimonial-section.tsx
+│  ├─ footer.tsx
+│  └─ ui/
+│     ├─ button.tsx
+│     └─ input.tsx
+├─ public/                 # Static assets
+├─ next.config.ts
+├─ tsconfig.json
+├─ eslint.config.mjs
+└─ package.json
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
 
-## Deploy on Vercel
+### Styling and Theme
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Tailwind v4 is configured via `app/globals.css` (uses `@theme`/`@apply`).
+- Update brand colors, spacing, and gradients there to match your brand.
+- UI primitives live in `components/ui/` and can be styled with Tailwind classes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Animations
+
+- Animations use Framer Motion. Prefer `ease: "easeOut" | "easeInOut" | "linear"` or the `cubicBezier(...)` helper.
+- Avoid raw cubic-bezier arrays in `variants` to satisfy strict types.
+
+## Deployment
+
+### Deploy to Vercel
+
+1. Push to GitHub.
+2. Create a new Vercel project and import the repo.
+3. Framework preset: Next.js. Default build command: `next build`.
+4. Set Node 18+ runtime if needed. Deploy.
+
+No environment variables are required for this landing page.
+
+## Troubleshooting
+
+- **Type errors with Framer Motion `ease`:** use string easings or `cubicBezier()` instead of arrays in `variants` transitions.
+- **JSX apostrophes:** escape in strings like `Let&apos;s`.
+- **Tailwind v4 warnings:** `@theme`/`@apply` warnings during lint are informational; they don’t break the build.
+
+## Contributing
+
+PRs and issues are welcome. Please run `npm run lint` before submitting.
+
+## License
+
+Add your preferred license here (e.g., MIT).
