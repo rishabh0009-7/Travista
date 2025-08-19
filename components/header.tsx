@@ -1,13 +1,14 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <motion.header
@@ -25,7 +26,17 @@ export default function Header() {
             transition: { type: "spring", stiffness: 400, damping: 10 },
           }}
         >
-          <div className="text-xl sm:text-2xl font-heading font-bold text-gray-900">Travista</div>
+          {/* <Image
+            src="/logo2.png"
+            alt="Travista logo"
+            width={40}
+            height={40}
+            className="h-8 w-auto sm:h-9 mr-2 sm:mr-3 drop-shadow-sm"
+            priority
+          /> */}
+          <div className="text-xl sm:text-2xl font-heading font-bold text-gray-900">
+            Travista
+          </div>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -35,7 +46,11 @@ export default function Header() {
               key={item}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 + 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1 + 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94],
+              }}
             >
               <Link
                 href="#"
@@ -54,7 +69,11 @@ export default function Header() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           whileTap={{ scale: 0.95 }}
         >
-          {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {isMenuOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
         </motion.button>
 
         {/* Desktop Auth Buttons */}
@@ -62,7 +81,11 @@ export default function Header() {
           className="hidden md:flex items-center space-x-3 lg:space-x-4"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{
+            duration: 0.8,
+            delay: 0.3,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
         >
           <Button
             variant="ghost"
@@ -91,7 +114,9 @@ export default function Header() {
             <motion.div
               key={item}
               initial={{ opacity: 0, x: -20 }}
-              animate={isMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+              animate={
+                isMenuOpen ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+              }
               transition={{ duration: 0.3, delay: index * 0.1 }}
             >
               <Link
@@ -126,5 +151,5 @@ export default function Header() {
         </div>
       </motion.div>
     </motion.header>
-  )
+  );
 }
