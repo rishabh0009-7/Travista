@@ -26,14 +26,6 @@ export default function Header() {
             transition: { type: "spring", stiffness: 400, damping: 10 },
           }}
         >
-          {/* <Image
-            src="/logo2.png"
-            alt="Travista logo"
-            width={40}
-            height={40}
-            className="h-8 w-auto sm:h-9 mr-2 sm:mr-3 drop-shadow-sm"
-            priority
-          /> */}
           <div className="text-xl sm:text-2xl font-heading font-bold text-gray-900">
             Travista
           </div>

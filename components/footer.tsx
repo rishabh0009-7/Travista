@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Facebook, Twitter, Instagram, Youtube } from "lucide-react"
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
+import Link from "next/link";
+import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function Footer() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   const footerLinks = {
     about: [
@@ -33,7 +33,7 @@ export default function Footer() {
       { name: "Question or feedback?", href: "#" },
       { name: "We'd love to hear from you", href: "#" },
     ],
-  }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -44,7 +44,7 @@ export default function Footer() {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -53,13 +53,15 @@ export default function Footer() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
       },
     },
-  }
+  };
 
   return (
-    <footer className="bg-gray-900 text-white px-4 sm:px-6 py-12 sm:py-16" ref={ref}>
+    <footer
+      className="bg-gray-900 text-white px-4 sm:px-6 py-12 sm:py-16"
+      ref={ref}
+    >
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8"
@@ -68,7 +70,10 @@ export default function Footer() {
           animate={isInView ? "visible" : "hidden"}
         >
           {/* Brand Section */}
-          <motion.div className="sm:col-span-2 lg:col-span-1" variants={itemVariants}>
+          <motion.div
+            className="sm:col-span-2 lg:col-span-1"
+            variants={itemVariants}
+          >
             <div className="space-y-4 text-center sm:text-left">
               <motion.div
                 className="text-xl sm:text-2xl font-heading font-bold"
@@ -77,8 +82,8 @@ export default function Footer() {
                 Travista
               </motion.div>
               <p className="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto sm:mx-0">
-                Travista helps you find your dream destination and creates unforgettable travel experiences around the
-                world.
+                Travista helps you find your dream destination and creates
+                unforgettable travel experiences around the world.
               </p>
               <div className="flex items-center justify-center sm:justify-start space-x-4">
                 {[
@@ -110,14 +115,21 @@ export default function Footer() {
           </motion.div>
 
           {/* About */}
-          <motion.div className="text-center sm:text-left" variants={itemVariants}>
-            <h3 className="font-semibold text-white mb-3 sm:mb-4 text-base sm:text-lg">About</h3>
+          <motion.div
+            className="text-center sm:text-left"
+            variants={itemVariants}
+          >
+            <h3 className="font-semibold text-white mb-3 sm:mb-4 text-base sm:text-lg">
+              About
+            </h3>
             <ul className="space-y-2 sm:space-y-3">
               {footerLinks.about.map((link, index) => (
                 <motion.li
                   key={link.name}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  animate={
+                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                  }
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.5 }}
                 >
                   <Link
@@ -133,14 +145,21 @@ export default function Footer() {
           </motion.div>
 
           {/* Company */}
-          <motion.div className="text-center sm:text-left" variants={itemVariants}>
-            <h3 className="font-semibold text-white mb-3 sm:mb-4 text-base sm:text-lg">Company</h3>
+          <motion.div
+            className="text-center sm:text-left"
+            variants={itemVariants}
+          >
+            <h3 className="font-semibold text-white mb-3 sm:mb-4 text-base sm:text-lg">
+              Company
+            </h3>
             <ul className="space-y-2 sm:space-y-3">
               {footerLinks.company.map((link, index) => (
                 <motion.li
                   key={link.name}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  animate={
+                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                  }
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
                 >
                   <Link
@@ -156,14 +175,21 @@ export default function Footer() {
           </motion.div>
 
           {/* Support */}
-          <motion.div className="text-center sm:text-left" variants={itemVariants}>
-            <h3 className="font-semibold text-white mb-3 sm:mb-4 text-base sm:text-lg">Support</h3>
+          <motion.div
+            className="text-center sm:text-left"
+            variants={itemVariants}
+          >
+            <h3 className="font-semibold text-white mb-3 sm:mb-4 text-base sm:text-lg">
+              Support
+            </h3>
             <ul className="space-y-2 sm:space-y-3">
               {footerLinks.support.map((link, index) => (
                 <motion.li
                   key={link.name}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  animate={
+                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                  }
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.7 }}
                 >
                   <Link
@@ -179,14 +205,21 @@ export default function Footer() {
           </motion.div>
 
           {/* Get in Touch */}
-          <motion.div className="text-center sm:text-left" variants={itemVariants}>
-            <h3 className="font-semibold text-white mb-3 sm:mb-4 text-base sm:text-lg">Get in Touch</h3>
+          <motion.div
+            className="text-center sm:text-left"
+            variants={itemVariants}
+          >
+            <h3 className="font-semibold text-white mb-3 sm:mb-4 text-base sm:text-lg">
+              Get in Touch
+            </h3>
             <ul className="space-y-2 sm:space-y-3">
               {footerLinks.getInTouch.map((link, index) => (
                 <motion.li
                   key={link.name}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  animate={
+                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                  }
                   transition={{ duration: 0.5, delay: index * 0.1 + 0.8 }}
                 >
                   <Link
@@ -206,7 +239,7 @@ export default function Footer() {
           className="border-t border-gray-800 mt-8 sm:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.8, delay: 1 }}
         >
           <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
             © 2025 Travista. All rights reserved.
@@ -216,7 +249,9 @@ export default function Footer() {
               <motion.div
                 key={item}
                 initial={{ opacity: 0, y: 10 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+                }
                 transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
               >
                 <Link
@@ -232,5 +267,5 @@ export default function Footer() {
         </motion.div>
       </div>
     </footer>
-  )
+  );
 }
